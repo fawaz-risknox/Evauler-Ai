@@ -1,0 +1,414 @@
+/* Editorial glass cards — Venture Readiness / Investability Diagnostic */
+
+.core-insights-section {
+  position: relative;
+  overflow-x: clip;
+}
+
+.insight-stage {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.insight-chamfer-card {
+  --insight-accent: #93b3ff;
+  --insight-line: rgba(147, 179, 255, 0.16);
+  position: relative;
+  border-radius: 20px;
+  background-color: #05060a;
+  background: radial-gradient(110% 110% at 50% 0%, #151a2a 0%, #090b14 65%, #05060a 100%);
+  border: 1px solid rgba(147, 179, 255, 0.2);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.95), 0 0 30px rgba(0, 0, 0, 0.8);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.insight-chamfer-card:hover {
+  border-color: rgba(147, 179, 255, 0.45);
+  background: radial-gradient(110% 110% at 50% 0%, #1c2338 0%, #0d101c 65%, #05060a 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.98), 0 0 35px rgba(147, 179, 255, 0.14);
+}
+
+.insight-chamfer-inner {
+  display: grid;
+  grid-template-columns: minmax(160px, 0.78fr) minmax(0, 1.92fr) minmax(0, 2.65fr);
+  align-items: stretch;
+  width: 100%;
+  height: 100%;
+  background-color: #05060a;
+  background: radial-gradient(110% 110% at 50% 0%, #151a2a 0%, #090b14 65%, #05060a 100%);
+  overflow: hidden;
+}
+
+/* Left rail */
+
+.insight-card-left {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 46px 24px 44px 36px;
+}
+
+.insight-card-left::after {
+  content: '';
+  position: absolute;
+  top: 44px;
+  right: 0;
+  bottom: 44px;
+  width: 1px;
+  background: var(--insight-line);
+}
+
+.insight-card-tag {
+  max-width: 118px;
+  color: #93b3ff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  line-height: 1.55;
+  text-transform: uppercase;
+}
+
+.insight-card-number {
+  margin: 26px 0 22px;
+  color: #93b3ff;
+  background: linear-gradient(180deg, #ffffff 30%, #93b3ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: var(--font-display, "Plus Jakarta Sans"), sans-serif;
+  font-size: clamp(4rem, 5vw, 4.8rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  user-select: none;
+}
+
+.insight-card-sublabel {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  line-height: 1.55;
+  text-transform: uppercase;
+}
+
+.insight-card-sublabel span {
+  display: block;
+}
+
+.insight-card-indicator {
+  margin-top: 32px;
+  color: #93b3ff;
+}
+
+/* Middle copy */
+
+.insight-card-middle {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 48px 32px 46px 38px;
+}
+
+.insight-audience-tag {
+  margin-bottom: 20px;
+  color: #93b3ff;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.insight-card-headline {
+  margin: 0 0 20px;
+  color: #fcfbff;
+  font-family: var(--font-display, "Plus Jakarta Sans"), sans-serif;
+  font-size: clamp(1.85rem, 2.7vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+.insight-headline-line {
+  display: block;
+  white-space: nowrap;
+}
+
+.insight-card-headline em {
+  color: #93b3ff;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.insight-card-desc {
+  max-width: 390px;
+  margin: 0 0 28px;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.92rem;
+  line-height: 1.68;
+}
+
+.insight-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  padding: 13px 26px;
+  border: 1px solid rgba(147, 179, 255, 0.4);
+  border-radius: 9999px;
+  background: rgba(147, 179, 255, 0.08);
+  box-shadow: 0 0 20px rgba(147, 179, 255, 0.15);
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.insight-pill-btn:hover {
+  border-color: #93b3ff;
+  background: #93b3ff;
+  color: #08090d;
+  box-shadow: 0 0 28px rgba(147, 179, 255, 0.5);
+  transform: translateY(-1px);
+}
+
+.insight-pill-btn svg {
+  transition: transform 0.2s ease;
+}
+
+.insight-pill-btn:hover svg {
+  transform: translateX(3px);
+}
+
+/* Right factor grid */
+
+.insight-card-grid {
+  position: relative;
+  display: grid;
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+  padding: 38px 40px 34px;
+}
+
+.insight-card-grid::before {
+  content: '';
+  position: absolute;
+  top: 44px;
+  bottom: 44px;
+  left: 0;
+  width: 1px;
+  background: var(--insight-line);
+}
+
+.insight-factor-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: 40px;
+  padding: 26px 0;
+  border-bottom: 1px solid var(--insight-line);
+}
+
+.insight-factor-row:last-child {
+  border-bottom: none;
+}
+
+.insight-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  min-width: 0;
+}
+
+.insight-icon-box {
+  display: flex;
+  flex: 0 0 46px;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(147, 179, 255, 0.3);
+  border-radius: 12px;
+  background: rgba(147, 179, 255, 0.08);
+  color: #93b3ff;
+  transition: all 0.25s ease;
+}
+
+.insight-feature-item:hover .insight-icon-box {
+  border-color: #93b3ff;
+  background: rgba(147, 179, 255, 0.18);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.insight-feature-copy {
+  min-width: 0;
+}
+
+.insight-feature-title {
+  margin-bottom: 6px;
+  color: #f4f7fc;
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.insight-feature-sub {
+  max-width: 240px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+@media (min-width: 768px) {
+  .insight-stage-pin {
+    position: sticky;
+    top: 92px;
+    z-index: 1;
+  }
+
+  .insight-stage > .insight-chamfer-card {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* The pinned card shrinks smoothly when being overlapped by the 2nd card */
+  .insight-stage-pin > .insight-chamfer-card {
+    --insight-overlap: 0;
+    transform-origin: top center;
+    transform: scale(calc(1 - 0.06 * var(--insight-overlap)));
+    will-change: transform;
+    transition: transform 0.12s ease-out;
+  }
+}
+
+/* Responsive */
+
+@media (max-width: 1240px) {
+  .insight-chamfer-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .insight-card-left {
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+    padding: 28px 32px;
+    border-bottom: 1px solid var(--insight-line);
+  }
+
+  .insight-card-left::after {
+    display: none;
+  }
+
+  .insight-card-tag {
+    max-width: none;
+  }
+
+  .insight-card-number {
+    margin: 0;
+    font-size: 3.4rem;
+  }
+
+  .insight-card-sublabel span {
+    display: inline;
+  }
+
+  .insight-card-sublabel span + span::before {
+    content: ' ';
+  }
+
+  .insight-card-indicator {
+    margin-top: 0;
+    margin-left: auto;
+  }
+
+  .insight-card-middle {
+    padding: 36px 32px 32px;
+    border-bottom: 1px solid var(--insight-line);
+  }
+
+  .insight-card-desc {
+    max-width: 620px;
+  }
+
+  .insight-card-grid {
+    padding: 8px 32px 16px;
+  }
+
+  .insight-card-grid::before {
+    display: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .insight-stage {
+    gap: 28px;
+  }
+
+  .insight-card-left {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      'tag number'
+      'sublabel indicator';
+    align-items: center;
+    gap: 10px 18px;
+    padding: 21px 22px;
+  }
+
+  .insight-card-tag {
+    grid-area: tag;
+  }
+
+  .insight-card-number {
+    grid-area: number;
+    margin: 0;
+    font-size: 3rem;
+    line-height: 0.8;
+    text-align: right;
+  }
+
+  .insight-card-sublabel {
+    grid-area: sublabel;
+    font-size: 0.62rem;
+  }
+
+  .insight-card-tag {
+    font-size: 0.62rem;
+  }
+
+  .insight-card-indicator {
+    grid-area: indicator;
+    margin: 0;
+    justify-self: end;
+  }
+
+  .insight-card-middle {
+    padding: 28px 22px 26px;
+  }
+
+  .insight-card-headline {
+    font-size: clamp(1.85rem, 7vw, 2.2rem);
+  }
+
+  .insight-card-grid {
+    display: block;
+    padding: 8px 22px 20px;
+  }
+
+  .insight-factor-row {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 22px 0;
+  }
+
+  .insight-feature-sub {
+    max-width: none;
+  }
+}

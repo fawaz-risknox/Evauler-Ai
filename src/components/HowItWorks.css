@@ -1,0 +1,361 @@
+/* Evaluer Process (How It Works) Section CSS - Scoped */
+
+.evaluer-process-root {
+  --proc-bg: #000000;
+  --proc-accent: #93b3ff;
+  --proc-accent-soft: rgba(147, 179, 255, 0.14);
+  --proc-accent-line: rgba(147, 179, 255, 0.28);
+  --proc-text: #ffffff;
+  --proc-muted: rgba(255, 255, 255, 0.68);
+
+  background: var(--proc-bg);
+  color: var(--proc-text);
+  font-family: var(--font-display, "Plus Jakarta Sans"), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  width: 100%;
+  overflow-x: clip;
+}
+
+/* ---------- Process Hero ---------- */
+.evaluer-process-root .process-hero {
+  position: relative;
+  min-height: 80vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 100px 24px 60px;
+  overflow: hidden;
+}
+
+.evaluer-process-root .process-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(60% 45% at 50% 105%, rgba(121, 153, 209, 0.22), transparent 70%),
+    linear-gradient(var(--proc-accent-soft) 1px, transparent 1px) 0 0 / 72px 72px,
+    linear-gradient(90deg, var(--proc-accent-soft) 1px, transparent 1px) 0 0 / 72px 72px;
+  -webkit-mask-image: radial-gradient(70% 70% at 50% 50%, #000 20%, transparent 85%);
+  mask-image: radial-gradient(70% 70% at 50% 50%, #000 20%, transparent 85%);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.evaluer-process-root .process-hero-inner {
+  position: relative;
+  max-width: 960px;
+  z-index: 1;
+}
+
+.evaluer-process-root .process-pill {
+  display: inline-block;
+  padding: 9px 20px;
+  border: 1px solid var(--proc-accent-line);
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--proc-accent);
+  background: rgba(121, 153, 209, 0.06);
+}
+
+.evaluer-process-root .process-hero h2 {
+  margin: 32px 0 24px;
+  font-size: clamp(2.6rem, 7vw, 5.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  color: #ffffff;
+}
+
+.evaluer-process-root .word-wrap {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding: 0 0.04em 0.1em;
+  margin-right: 0.3em;
+}
+
+.evaluer-process-root .word-wrap:last-child {
+  margin-right: 0;
+}
+
+.evaluer-process-root .word {
+  display: inline-block;
+  will-change: transform;
+}
+
+.evaluer-process-root .process-hero-sub {
+  color: var(--proc-accent);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  max-width: 540px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.evaluer-process-root .scroll-cue {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 22px;
+  height: 38px;
+  border: 1.5px solid var(--proc-accent-line);
+  border-radius: 12px;
+}
+
+.evaluer-process-root .scroll-cue::after {
+  content: '';
+  position: absolute;
+  top: 7px;
+  left: 50%;
+  width: 3px;
+  height: 7px;
+  margin-left: -1.5px;
+  border-radius: 2px;
+  background: var(--proc-accent);
+  animation: processCue 1.6s ease-in-out infinite;
+}
+
+@keyframes processCue {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+
+  40% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+/* ---------- Story Stage ---------- */
+.evaluer-process-root .story {
+  position: relative;
+  width: 100%;
+}
+
+.evaluer-process-root .story-stage {
+  position: relative;
+  width: 100%;
+}
+
+.evaluer-process-root .chapter {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  padding: 0 24px;
+  margin-bottom: 96px;
+}
+
+.evaluer-process-root .chapter-text {
+  position: relative;
+  z-index: 1;
+  max-width: 520px;
+}
+
+.evaluer-process-root .step-pill {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--proc-accent);
+  color: #000;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.evaluer-process-root .kicker {
+  margin-top: 24px;
+  color: var(--proc-accent);
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.evaluer-process-root .chapter h3 {
+  margin: 12px 0 18px;
+  font-size: clamp(2rem, 4.4vw, 3.4rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.evaluer-process-root .desc {
+  color: var(--proc-muted);
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  line-height: 1.6;
+}
+
+.evaluer-process-root .ghost {
+  position: absolute;
+  left: 16px;
+  top: -24px;
+  font-size: clamp(9rem, 22vw, 18rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.06em;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--proc-accent-line);
+  pointer-events: none;
+  user-select: none;
+}
+
+.evaluer-process-root .scene-card {
+  position: relative;
+  z-index: 1;
+  border: 1px solid var(--proc-accent-line);
+  border-radius: 28px;
+  padding: 24px;
+  background: radial-gradient(90% 80% at 50% 0%, rgba(121, 153, 209, 0.12), #000000 70%);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+.evaluer-process-root .scene-card svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.evaluer-process-root .rail {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .evaluer-process-root .story-stage {
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .evaluer-process-root .chapter {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(32px, 6vw, 96px);
+    align-items: center;
+    padding: 0 clamp(24px, 6vw, 96px) 0 clamp(88px, 10vw, 150px);
+  }
+
+  .evaluer-process-root .ghost {
+    left: clamp(60px, 8vw, 120px);
+    top: 50%;
+    transform: translateY(-108%);
+  }
+
+  .evaluer-process-root .rail {
+    display: block;
+    position: absolute;
+    z-index: 2;
+    left: clamp(24px, 3.5vw, 56px);
+    top: 50%;
+    height: 44vh;
+    transform: translateY(-50%);
+  }
+
+  .evaluer-process-root .rail-track {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    margin-left: -1px;
+    background: var(--proc-accent-line);
+  }
+
+  .evaluer-process-root .rail-fill {
+    width: 100%;
+    height: 100%;
+    background: var(--proc-accent);
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+
+  .evaluer-process-root .rail-dot {
+    position: absolute;
+    left: 50%;
+    width: 14px;
+    height: 14px;
+    margin: -7px 0 0 -7px;
+    border-radius: 50%;
+    border: 2px solid var(--proc-accent-line);
+    background: #000;
+    transition: background 0.3s, border-color 0.3s, transform 0.3s;
+  }
+
+  .evaluer-process-root .rail-dot.on {
+    background: var(--proc-accent);
+    border-color: var(--proc-accent);
+    transform: scale(1.25);
+  }
+}
+
+/* ---------- Outro ---------- */
+.evaluer-process-root .outro {
+  min-height: 80vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 96px 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.evaluer-process-root .outro::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(121, 153, 209, 0.18), transparent 70%);
+  pointer-events: none;
+}
+
+.evaluer-process-root .outro-inner {
+  position: relative;
+  max-width: 860px;
+  z-index: 1;
+}
+
+.evaluer-process-root .outro h2 {
+  font-size: clamp(2.2rem, 6vw, 4.6rem);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.evaluer-process-root .outro p {
+  margin: 24px auto 40px;
+  color: var(--proc-muted);
+  font-size: 1.15rem;
+  max-width: 520px;
+  line-height: 1.6;
+}
+
+.evaluer-process-root .cta {
+  display: inline-block;
+  padding: 16px 36px;
+  border-radius: 999px;
+  background: var(--proc-accent);
+  color: #000;
+  font-weight: 700;
+  font-size: 1.05rem;
+  transition: transform 0.25s, box-shadow 0.25s;
+  text-decoration: none;
+}
+
+.evaluer-process-root .cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px rgba(121, 153, 209, 0.4);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .evaluer-process-root .scroll-cue::after {
+    animation: none;
+  }
+}
