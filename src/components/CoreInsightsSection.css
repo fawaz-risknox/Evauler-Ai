@@ -29,7 +29,7 @@
   border-color: rgba(147, 179, 255, 0.45);
   background: radial-gradient(110% 110% at 50% 0%, #1c2338 0%, #0d101c 65%, #05060a 100%);
   transform: translateY(-3px);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.98), 0 0 35px rgba(147, 179, 255, 0.14);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.98);
 }
 
 .insight-chamfer-inner {
